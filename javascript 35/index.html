@@ -1,0 +1,160 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>JavaScript Functions</title>  
+    <script>  
+        // 1. Display current date & time  
+        function displayCurrentDateTime() {  
+            const now = new Date();  
+            document.getElementById("currentDateTime").innerText = now.toString();  
+        }  
+
+        // 2. Greet the user with full name  
+        function greetUser() {  
+            const firstName = prompt("Enter your first name:");  
+            const lastName = prompt("Enter your last name:");  
+            alert(`Hello, ${firstName} ${lastName}!`);  
+        }  
+
+        // 3. Add two numbers  
+        function addTwoNumbers() {  
+            const num1 = parseFloat(prompt("Enter the first number:"));  
+            const num2 = parseFloat(prompt("Enter the second number:"));  
+            const sum = num1 + num2;  
+            alert(`The sum is: ${sum}`);  
+        }  
+
+        // 4. Calculator function  
+        function calculator(num1, num2, operator) {  
+            let result;  
+            switch(operator) {  
+                case '+':  
+                    result = num1 + num2;  
+                    break;  
+                case '-':  
+                    result = num1 - num2;  
+                    break;  
+                case '*':  
+                    result = num1 * num2;  
+                    break;  
+                case '/':  
+                    result = num1 / num2;  
+                    break;  
+                default:  
+                    alert("Invalid operator");  
+                    return;  
+            }  
+            alert(`The result is: ${result}`);  
+        }  
+
+        // 5. Square a number  
+        function squareNumber(num) {  
+            return num * num;  
+        }  
+
+        // 6. Compute factorial of a number  
+        function factorial(num) {  
+            if (num < 0) {  
+                return "Factorial not defined for negative numbers.";  
+            }  
+            if (num === 0) {  
+                return 1;  
+            }  
+            let fact = 1;  
+            for (let i = 1; i <= num; i++) {  
+                fact *= i;  
+            }  
+            return fact;  
+        }  
+
+        // 7. Display counting from start to end  
+        function displayCounting() {  
+            const start = parseInt(prompt("Enter the start number:"), 10);  
+            const end = parseInt(prompt("Enter the end number:"), 10);  
+            let output = "";  
+            for (let i = start; i <= end; i++) {  
+                output += i + " ";  
+            }  
+            alert(output);  
+        }  
+
+        // 8. Calculate hypotenuse  
+        function calculateHypotenuse() {  
+            function calculateSquare(value) {  
+                return value * value;  
+            }  
+            const base = parseFloat(prompt("Enter the base of the triangle:"));  
+            const perpendicular = parseFloat(prompt("Enter the perpendicular of the triangle:"));  
+            const hypotenuse = Math.sqrt(calculateSquare(base) + calculateSquare(perpendicular));  
+            alert(`The hypotenuse is: ${hypotenuse}`);  
+        }  
+
+        // 9. Calculate area of a rectangle  
+        function calculateAreaOfRectangle(width, height) {  
+            return width * height;  
+        }  
+
+        // 10. Check if a string is a palindrome  
+        function isPalindrome(str) {  
+            const reversed = str.split('').reverse().join('');  
+            return str === reversed;  
+        }  
+
+        // 11. Convert first letter of each word to uppercase  
+        function capitalizeWords(str) {  
+            return str.replace(/\b\w/g, char => char.toUpperCase());  
+        }  
+
+        // 12. Find the longest word in a string  
+        function findLongestWord(sentence) {  
+            const words = sentence.split(' ');  
+            let longestWord = "";  
+            for (let word of words) {  
+                if (word.length > longestWord.length) {  
+                    longestWord = word;  
+                }  
+            }  
+            return longestWord;  
+        }  
+
+        // 13. Count occurrences of a letter in a string  
+        function countOccurrences(string, letter) {  
+            return string.split(letter).length - 1;  
+        }  
+
+        // 14. Geometrizer (Circumference and Area of a Circle)  
+        function calcCircumference(radius) {  
+            const circumference = 2 * Math.PI * radius;  
+            alert(`The circumference is: ${circumference}`);  
+        }  
+
+        function calcArea(radius) {  
+            const area = Math.PI * radius * radius;  
+            alert(`The area is: ${area}`);  
+        }  
+    </script>  
+</head>  
+<body onload="displayCurrentDateTime();">  
+    <h1>JavaScript Functions Demo</h1>  
+
+    <h2>1. Current Date and Time:</h2>  
+    <p id="currentDateTime"></p>  
+
+    <button onclick="greetUser()">2. Greet User</button>  
+    <button onclick="addTwoNumbers()">3. Add Two Numbers</button>  
+    <button onclick="calculator(5, 3, '+')">4. Calculator (+) Example</button>  
+    <button onclick="alert(squareNumber(5))">5. Square of 5</button>  
+    <button onclick="alert(factorial(5))">6. Factorial of 5</button>  
+    <button onclick="displayCounting()">7. Display Counting</button>  
+    <button onclick="calculateHypotenuse()">8. Calculate Hypotenuse</button>  
+    <button onclick="alert(calculateAreaOfRectangle(5, 10))">9. Area of Rectangle (5, 10)</button>  
+    <button onclick="alert(isPalindrome('madam'))">10. Check Palindrome 'madam'</button>  
+    <button onclick="alert(capitalizeWords('the quick brown fox'))">11. Capitalize Words</button>  
+    <button onclick="alert(findLongestWord('Web Development Tutorial'))">12. Longest Word</button>  
+    <button onclick="alert(countOccurrences('JSResourceS.com', 'o'))">13. Count Occurrences of 'o'</button>  
+    <button onclick="calcCircumference(5)">14. Circumference of Circle (radius 5)</button>  
+    <button onclick="calcArea(5)">Area of Circle (radius 5)</button>  
+</body>  
+</html>
